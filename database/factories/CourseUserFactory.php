@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CourseUserTable>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CourseUser>
  */
-class CourseUserTableFactory extends Factory
+class CourseUserFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,11 @@ class CourseUserTableFactory extends Factory
     public function definition(): array
     {
         return [
+            
             'completed'=>fake()->boolean(),
             'seen'=>fake()->boolean(),
             'user_id'=>fake()->numberBetween(1,31),
-            'course_id'=>fake()->numberBetween(1,6)
+            'course_id'=>fake()->numberBetween(1,3)
         ];
     }
 }

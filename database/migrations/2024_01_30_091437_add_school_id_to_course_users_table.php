@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('course_user_tables', function (Blueprint $table) {
-            
+        Schema::table('course_users', function (Blueprint $table) {
             $table->foreignId('user_id')->default(1)->constrained();
             $table->foreignId('course_id')->default(1)->constrained();
         });
@@ -23,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('course_user_tables', function (Blueprint $table) {
+        Schema::table('course_users', function (Blueprint $table) {
             //
         });
     }

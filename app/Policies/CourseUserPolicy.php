@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\CourseUser;
 use App\Models\User;
-use App\Models\course_user_table;
 use Illuminate\Auth\Access\Response;
 
-class CourseUserTablePolicy
+class CourseUserPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class CourseUserTablePolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, course_user_table $courseUserTable): bool
+    public function view(User $user, CourseUser $courseUser): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class CourseUserTablePolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, course_user_table $courseUserTable): bool
+    public function update(User $user, CourseUser $courseUser): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class CourseUserTablePolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, course_user_table $courseUserTable): bool
+    public function delete(User $user, CourseUser $courseUser): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class CourseUserTablePolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, course_user_table $courseUserTable): bool
+    public function restore(User $user, CourseUser $courseUser): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class CourseUserTablePolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, course_user_table $courseUserTable): bool
+    public function forceDelete(User $user, CourseUser $courseUser): bool
     {
         //
     }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\course_user_table;
-use App\Http\Requests\Storecourse_user_tableRequest;
-use App\Http\Requests\Updatecourse_user_tableRequest;
+use App\Models\CourseUser;
+use App\Http\Requests\StoreCourseUserRequest;
+use App\Http\Requests\UpdateCourseUserRequest;
 
-class CourseUserTableController extends Controller
+class CourseUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class CourseUserTableController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Storecourse_user_tableRequest $request)
+    public function store(StoreCourseUserRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class CourseUserTableController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(course_user_table $course_user_table)
+    public function show(CourseUser $courseUser)
     {
         //
     }
@@ -43,7 +43,7 @@ class CourseUserTableController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(course_user_table $course_user_table)
+    public function edit(CourseUser $courseUser)
     {
         //
     }
@@ -51,7 +51,7 @@ class CourseUserTableController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Updatecourse_user_tableRequest $request, course_user_table $course_user_table)
+    public function update(UpdateCourseUserRequest $request, CourseUser $courseUser)
     {
         //
     }
@@ -59,7 +59,7 @@ class CourseUserTableController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(course_user_table $course_user_table)
+    public function destroy(CourseUser $courseUser)
     {
         //
     }

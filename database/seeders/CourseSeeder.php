@@ -31,5 +31,8 @@ class CourseSeeder extends Seeder
             'c_route'=>'php.security',
             'type_id'=> 3
         ]);
+
+        Course::factory(3)->create();
+
     }
 }

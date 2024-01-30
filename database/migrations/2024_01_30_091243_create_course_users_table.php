@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('course_user_tables', function (Blueprint $table) {
+        Schema::create('course_users', function (Blueprint $table) {
+            $table->id();
             $table->boolean('completed');
             $table->boolean('seen');
             $table->timestamps();
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('course_user_tables');
+        Schema::dropIfExists('course_users');
     }
 };

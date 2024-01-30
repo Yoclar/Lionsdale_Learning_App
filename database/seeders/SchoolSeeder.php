@@ -28,5 +28,8 @@ class SchoolSeeder extends Seeder
             'contactemail' => 'szenasyzsolt​@elg-bp.edu.hu'
 
         ]);
+
+        School::factory(1)->create();
+
     }
 }
