@@ -12,7 +12,7 @@
     color: whitesmoke;
 }
 
-#slidebar{
+#sidebar{
     height: 100%;
     width: 0;
     position: fixed;
@@ -43,4 +43,8 @@
     left: 20px;
     font-size: 20px;
     cursor: pointer;
+}
+
+.navbar-original {
+    display: none;
 }

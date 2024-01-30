@@ -7,12 +7,12 @@
     Your browser does not support the video tag.
 </video>
 <div class="container text-center">
-    <h1 id="welcomeText">Welcome to the home page</h1>
+    <h1 id="welcomeText">Welcome</h1>
     @auth
-        <p id="welcomeText">Hello, {{ Auth::user()->name }}!</p>
+        <p id="welcomeText">Greatings, {{ Auth::user()->name }}!</p>
         
     @else
-        <p id="welcomeText">Welcome, Guest!</p>
+        <p id="welcomeText">Greatings, Guest!</p>
         
     @endauth
 </div>
