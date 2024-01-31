@@ -16,8 +16,10 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/sidebar.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/sidebar.js', 'resources/js/modal.js'])
 </head>
 <body>
     <div id="app">
