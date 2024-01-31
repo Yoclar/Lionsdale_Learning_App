@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('c_route');
             $table->foreignId('type_id')->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

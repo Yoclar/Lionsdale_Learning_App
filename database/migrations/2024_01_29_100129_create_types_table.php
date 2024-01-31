@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('type');
             $table->string('slug');  
-            $table->timestamps();       
+            $table->timestamps();   
+            $table->softDeletes();    
         });
     }
 

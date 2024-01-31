@@ -43,8 +43,16 @@
     left: 20px;
     font-size: 20px;
     cursor: pointer;
+    border: none;
 }
 
 .navbar-original {
     display: none;
+}
+#detailsBtn{
+    text-align: left;
+}
+
+#applyBtn{
+    text-align: right;
 }

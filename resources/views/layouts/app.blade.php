@@ -25,8 +25,8 @@
         <div id="sidebar">
             <!-- Add your sidebar content here -->
             <a href="#" class="closebtn" id="closeSidebarButton" onclick="closeSidebar()">&times;</a>
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
+            <a href="{{url('/')}}">Home</a>
+            <a href="{{ route('courses.index') }}">Courses</a>
             <a href="#">Link 3</a>
 
             <!-- Add login and logout buttons -->
