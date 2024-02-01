@@ -33,3 +33,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 |-------------------------------------------------------------------------- 
 */
 Route::resource('/courses', CourseController::class);
+
+
+
+
+
+
+/* 
+|--------------------------------------------------------------------------
+| Apply routes
+|-------------------------------------------------------------------------- 
+*/
+Route::get('/apply/{courseId}', [App\Http\Controllers\ApplyController::class, 'showForm'])->name('apply.form');

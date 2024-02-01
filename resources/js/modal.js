@@ -1,14 +1,18 @@
+
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Document is ready!');
+
     var modalTriggerButtons = document.querySelectorAll('[data-toggle="modal"]');
-    console.log('Found modal trigger buttons:', modalTriggerButtons);
+   
 
 
     modalTriggerButtons.forEach(function(button) {
         button.addEventListener('click', function() {
-            console.log('Modal button clicked!');
             var name = button.getAttribute('data-name');
             var level = button.getAttribute('data-level');
+            var description = button.getAttribute('data-description');
+            var price = button.getAttribute('data-price');
+            
+            var courseId = button.getAttribute('data-course-id'); // Add this line to get the course ID
 
             var courseNameElement = document.getElementById('courseName');
             var courseLevelElement = document.getElementById('courseLevel');
@@ -18,9 +22,19 @@ document.addEventListener('DOMContentLoaded', function() {
             courseLevelElement.textContent = 'Course Level: ' + level;
 
             // Show the modal
-            var modal = new bootstrap.Modal(document.getElementById('courseDetailsModal'));
-            modal.show();
-            console.log('Modal shown!');
+            var modal = $('#courseDetailsModal');
+            modal.modal('toggle');
         });
     });
+
+
+     // Additional code to handle modal close events
+     $('#courseDetailsModal').on('hidden.bs.modal', function () {
+       
+        // Additional code to run when the modal is closed
+    });
+    $(document).ready(function() {
+        $('#courseDetailsModal').on('show.bs.modal', function (event) {
+        });
+     });
 });

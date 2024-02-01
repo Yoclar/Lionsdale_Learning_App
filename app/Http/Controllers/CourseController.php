@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Faker\Factory as Faker;
 use App\Models\Course;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
@@ -14,7 +15,24 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
+
+        foreach($courses as $course){
+            $course->description = $this->generateFakeDescription();
+            $course->price = round($this->generateFakePrice(), 0); 
+
+        }
         return view('courses.index', ['courses' => $courses]);
+    }
+    protected function generateFakeDescription(): string
+    {
+        $faker = Faker::create();
+        return $faker->realText(200,2);
+        
+    }
+
+    protected function generateFakePrice(): float
+    {
+        return fake()->randomFloat(2,100,200);
     }
 
     /**
