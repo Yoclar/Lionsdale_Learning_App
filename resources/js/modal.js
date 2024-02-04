@@ -9,17 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
             var description = button.getAttribute('data-description');
             var price = button.getAttribute('data-price');
             
-            var courseId = button.getAttribute('data-course-id'); // Add this line to get the course ID
-            console.log('Course ID:', courseId);
+            var courseId = button.getAttribute('data-course-id'); 
 
             var courseNameElement = document.getElementById('courseName-' + courseId);
             var courseLevelElement = document.getElementById('courseLevel-' + courseId);
             var courseDescriptionElement = document.getElementById('courseDescription-' + courseId);
             var coursePriceElement = document.getElementById('coursePrice-' + courseId);
-
-            console.log('courseNameElement:', courseNameElement);
-            console.log('courseLevelElement:', courseLevelElement);
-
+      
             // Update the modal content with the course details
             courseNameElement.textContent = 'Course Name: ' + name;
             courseLevelElement.textContent = 'Course Level: ' + level;
@@ -34,6 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Additional code to handle modal close events
     $('[id^="courseDetailsModal-"]').on('hidden.bs.modal', function () {
-        // Additional code to run when the modal is closed
+        
     });
 });
