@@ -8,7 +8,6 @@
 @section('scripts')
     <script src="{{ asset('js/modal.js') }}"></script>
     <script src="{{asset('js/bootstrap.js')}}"></script>
-    <script src="{{asset('js/apply.js')}}"></script>
 @endsection
 <div class="container">
     <div class="row">
@@ -38,36 +37,37 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="courseDetailsModal-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="courseDetailsModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="courseDetailsModalLabel">Course Details</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Add content here based on the selected course -->
+                            <p id="courseName-{{$item->id}}"></p>
+                            <p id="courseLevel-{{$item->id}}"></p>
+                            <p id="courseDescription-{{$item->id}}">Description: {{ $item->description }}</p>
+                            <!-- Add more details if needed -->
+
+                            <p id="coursePrice-{{$item->id}}">Price:  {{ $item->price }} $</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <!-- Add additional buttons if needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         @endforeach
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="courseDetailsModal" tabindex="-1" role="dialog" aria-labelledby="courseDetailsModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="courseDetailsModalLabel">Course Details</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Add content here based on the selected course -->
-                <p id="courseName"></p>
-                <p id="courseLevel"></p>
-                <p id="courseDescription">Description: {{ $item->description }}</p>
-                <!-- Add more details if needed -->
-                <script>
-                    console.log({{$item->price}})
-                </script>
-                <p id="coursePrice">Price:  {{ $item->price }} $</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <!-- Add additional buttons if needed -->
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
+

@@ -27,21 +27,21 @@
         <div id="sidebar">
             <!-- Add your sidebar content here -->
             <a href="#" class="closebtn" id="closeSidebarButton" onclick="closeSidebar()">&times;</a>
-            <a href="{{url('/')}}">Home</a>
-            <a href="{{ route('courses.index') }}">Courses</a>
-            <a href="#">Link 3</a>
+            <a class="nav-link text-center sidebarLink" href="{{url('/')}}">Home</a>
+            <a class="nav-link text-center sidebarLink" href="{{ route('courses.index') }}">Courses</a>
+            <a class="nav-link text-center sidebarLink" href="#">Link 3</a>
 
             <!-- Add login and logout buttons -->
             @guest
                 @if (Route::has('login'))
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="nav-link text-center sidebarLink" href="{{ route('login') }}">{{ __('Login') }}</a>
                 @endif
 
                 @if (Route::has('register'))
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link text-center sidebarLink" href="{{ route('register') }}">{{ __('Register') }}</a>
                 @endif
             @else
-                <a class="nav-link" href="{{ route('logout') }}"
+                <a class="nav-link text-center" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}

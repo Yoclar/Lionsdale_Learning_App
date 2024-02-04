@@ -50,9 +50,17 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'fullname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'school_id' => ['required', 'exists:schools,id']
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        $schools = \App\Models\School::all();
+        return view('auth.register', compact('schools'));
     }
 
     /**
@@ -65,8 +73,14 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'fullname' => $data['fullname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'active' => true,
+            'school_id' => $data['school_id']
+            
         ]);
+
+        Session::flash('success', 'Registration successful! Welcome to our site.');
     }
 }
