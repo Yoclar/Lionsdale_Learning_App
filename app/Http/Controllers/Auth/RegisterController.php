@@ -81,6 +81,5 @@ class RegisterController extends Controller
             
         ]);
 
-        Session::flash('success', 'Registration successful! Welcome to our site.');
     }
 }

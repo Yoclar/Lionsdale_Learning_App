@@ -13,10 +13,12 @@
 
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                            
                         
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input onchange="checkNameIsTaken(this.value);" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         
+                                <small  id="responseText" class="form-label"></small>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -24,6 +26,7 @@
                                 @enderror
                             </div>
                         </div>
+                        
                         
                         <div class="row mb-3">
                             <label for="fullname" class="col-md-4 col-form-label text-md-end">{{ __('Full Name') }}</label>
@@ -101,4 +104,34 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    function checkNameIsTaken(input){
+        $.ajax({
+            type: 'POST',
+            url: '/checkUserTaken',
+            data: {
+                '_token' : '{{csrf_token()}}',
+                'name': input
+            },
+            success: function(data) {
+           
+
+                if (data.status == "failed")
+                {   
+                    $('#responseText').removeClass('text-danger text-success')
+                    $('#responseText').html('Username is taken');
+                    $('#responseText').addClass('text-danger');
+                    
+                }
+                else {
+                    $('#responseText').removeClass('text-danger text-success')
+                    $('#responseText').html("Username available");
+                    $('#responseText').addClass('text-success');
+                }
+            }
+        });
+    }
+</script>
 @endsection

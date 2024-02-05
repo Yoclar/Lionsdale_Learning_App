@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,8 +37,20 @@ Route::resource('/courses', CourseController::class);
 
 
 
+/* 
+|--------------------------------------------------------------------------
+| Check user routes
+|-------------------------------------------------------------------------- 
+*/
+Route::post('/checkUserTaken', [App\Http\Controllers\UserController::class, 'checkNameIsTaken'])->name('username.check');
 
 
+/* 
+|--------------------------------------------------------------------------
+| Register for course routes
+|-------------------------------------------------------------------------- 
+*/
+Route::post('/register-for-course/{course}', [UserController::class, 'registerForCourse'])->middleware(['auth'])->name('register.for.course');
 
 /* 
 |--------------------------------------------------------------------------

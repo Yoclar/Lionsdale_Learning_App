@@ -35,6 +35,7 @@ class CourseController extends Controller
         return fake()->randomFloat(2,100,200);
     }
 
+    
     /**
      * Show the form for creating a new resource.
      */

@@ -32,7 +32,7 @@
                         <div class="col-4">
                             <form action="{{route('apply.form', $item->id)}}" method="GET">
                                 <button type="submit" class="btn btn-success apply-btn" data-course-id="{{ $item->id }}">Apply</button>
-                            </form>
+                            </form> 
                         </div>
                     </div>
                 </div>
@@ -53,13 +53,13 @@
                             <p id="courseName-{{$item->id}}"></p>
                             <p id="courseLevel-{{$item->id}}"></p>
                             <p id="courseDescription-{{$item->id}}">Description: {{ $item->description }}</p>
-                            <!-- Add more details if needed -->
+                            
 
                             <p id="coursePrice-{{$item->id}}">Price:  {{ $item->price }} $</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <!-- Add additional buttons if needed -->
+                            
                         </div>
                     </div>
                 </div>
