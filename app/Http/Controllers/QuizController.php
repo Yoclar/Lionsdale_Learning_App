@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class QuizController extends Controller
 {
-    public function submit(Request $request)
+    public function submit(Request $request, $courseId)
     {
         $user = Auth::user();
         $score = 0;
@@ -20,16 +20,24 @@ class QuizController extends Controller
             'question5' => 'option2'
         ];
 
-        foreach ($correctAnswers as $question => $correctAnswers) {
+        foreach ($correctAnswers as $question => $correctAnswer) {
             if ($request->input($question) === $correctAnswer) {
                 $score++; 
             }
         }
 
-        if ($correctAnswers >= 4) 
+        if ($score >= 4) 
         {
-            $user->update(['completed' => true]);
+            $user->courses()->updateExistingPivot($courseId, ['completed' => true]);
+            toastr()->success('You completed the test', 'Congrats');
+            return back();
+            
         }
-        return redirect()->back()->with('success', 'Quiz submitted successfully.');
+        else {
+            toastr()->warning('You failed the test :(');
+            return back();
+        }
     }
+    
+
 }

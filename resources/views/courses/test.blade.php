@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card">
-    <div class="card-body">
+
+    
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -25,7 +25,7 @@
                             </div>
                             <div class="form-check">
                                 <input type="radio" id="question1_option3" name="question1" value="Berlin" class="form-check-input">
-                                <label for="question1_option3" class="form-check-label">&lt;?php ?&gt; and &lt;?php ?&gt;</label>
+                                <label for="question1_option3" class="form-check-label">&lt;?php?&gt;</label>
                             </div>
                         </div>
         
@@ -97,13 +97,13 @@
                             </div>
                         </div>
         
-                        <!-- Add more questions as needed -->
+                        
         
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    
+
 @endsection
