@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuizController extends Controller
 {
     public function submit(Request $request)
     {
         $user = Auth::user();
-        $correctAnswers = 0;
+        $score = 0;
 
         $correctAnswers = [
             'question1' => 'option3',
@@ -20,9 +21,8 @@ class QuizController extends Controller
         ];
 
         foreach ($correctAnswers as $question => $correctAnswers) {
-            if ($request->has($question) && $request->input($question))
-            {
-                $correctAnswers++;   
+            if ($request->input($question) === $correctAnswer) {
+                $score++; 
             }
         }
 

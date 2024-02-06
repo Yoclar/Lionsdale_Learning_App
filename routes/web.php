@@ -64,5 +64,5 @@ Route::get('/apply/{courseId}', [App\Http\Controllers\ApplyController::class, 's
 | Quiz routes
 |-------------------------------------------------------------------------- 
 */
-Route::post('/quiz/submit', [QuizController::class, 'submit'])->name('quiz.submit');
+Route::post('/quiz/submit', [App\Http\Controllers\QuizController::class, 'submit'])->name('quiz.submit');
     
