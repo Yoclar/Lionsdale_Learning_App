@@ -26,15 +26,18 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/sidebar.js', 'resources/js/modal.js'])
 </head>
-<body>
+<body >
     <div id="app">
         <!-- Sidebar -->
         <div id="sidebar">
             <!-- Add your sidebar content here -->
             <a href="#" class="closebtn" id="closeSidebarButton" onclick="closeSidebar()">&times;</a>
             <a class="nav-link text-center sidebarLink" href="{{url('/')}}">Home</a>
-            <a class="nav-link text-center sidebarLink" href="{{ route('courses.index') }}">Courses</a>
-            <a class="nav-link text-center sidebarLink" href="#">Link 3</a>
+            <a class="nav-link text-center sidebarLink" href="{{route('courses.create')}}">Create course</a>
+            <a class="nav-link text-center sidebarLink" href="{{route('courses.index') }}">Courses</a>
+            @if(Auth::check() && Auth::user()->courses->isNotEmpty())<a class="nav-link text-center sidebarLink" href="{{route('courses.test')}}">Take the course test</a>
+            @endif
+            
 
             <!-- Add login and logout buttons -->
             @guest

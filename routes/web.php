@@ -34,7 +34,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 |-------------------------------------------------------------------------- 
 */
 Route::resource('/courses', CourseController::class);
-
+Route::get('/courses_test', [CourseController::class, 'showTestForm'])->name('courses.test');
 
 
 /* 

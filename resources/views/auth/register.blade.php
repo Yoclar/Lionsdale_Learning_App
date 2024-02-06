@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<video id="background-video" playsinline autoplay muted loop poster="#">
+    <source src="{{ asset('storage/videos/indexvideo.mp4') }}" type="video/webm">
+    Your browser does not support the video tag.
+</video>
+<div class="auth-container">
+    <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -103,8 +108,8 @@
             </div>
         </div>
     </div>
+    </div>
 </div>
-
 
 <script>
     function checkNameIsTaken(input){

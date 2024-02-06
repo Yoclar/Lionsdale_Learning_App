@@ -20,6 +20,15 @@ class UserController extends Controller
         }
     }
 
+
+ /*    public function showCoursesPage()
+    {
+        $user = Auth::user();
+        $courses = $user->courses;
+
+        return view('user.courses', compact('courses'));
+    } */
+
     public function registerForCourse(Request $request, Course $course)
     {   
         if (Auth::check()) {

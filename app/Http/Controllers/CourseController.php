@@ -36,12 +36,18 @@ class CourseController extends Controller
     }
 
     
+    public function showTestForm()
+    {
+        
+        return view('courses.test');
+    }
+    
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('courses.create');
     }
 
     /**
@@ -49,7 +55,10 @@ class CourseController extends Controller
      */
     public function store(StoreCourseRequest $request)
     {
-        //
+        $course = Course::create($request->all());
+        $course->save();
+        toastr()->success('Course has been added successfully!', 'Congrats');
+        return redirect('courses');
     }
 
     /**
