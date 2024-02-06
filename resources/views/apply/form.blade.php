@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<video id="background-video" playsinline autoplay muted loop poster="#">
+    <source src="{{ asset('storage/videos/indexvideo.mp4') }}" type="video/webm">
+    Your browser does not support the video tag.
+</video>
 <div class="row">
     <div class="col-2"></div>
     <div class="col-8">

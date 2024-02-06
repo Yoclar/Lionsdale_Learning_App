@@ -8,9 +8,6 @@
     z-index: -100;
 }
 
-#welcomeText{
-    color: whitesmoke;
-}
 
 #sidebar{
     height: 100%;
@@ -23,10 +20,11 @@
     overflow-x:hidden;
     transition: 0.5s;
     padding-top: 60px;
+    color:white;
 }
 
 #sidebar a:hover{
-    color: #f1f1f1;
+    color: #1f4596;
 }
 
 #sidebar .closebtn{
@@ -98,6 +96,11 @@
     }
 }
 
-.gray-bg {
-    background-color: #f8f9fa; 
+.background {
+    background: rgb(2,0,36);
+    background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(60,60,121,1) 43%);
+}
+
+.welcomeText{
+    color: antiquewhite;
 }

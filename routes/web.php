@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
@@ -50,7 +50,7 @@ Route::post('/checkUserTaken', [App\Http\Controllers\UserController::class, 'che
 | Register for course routes
 |-------------------------------------------------------------------------- 
 */
-Route::post('/register-for-course/{course}', [UserController::class, 'registerForCourse'])->middleware(['auth'])->name('register.for.course');
+Route::post('/register-for-course/{course}', [UserController::class, 'registerForCourse'])->name('register.for.course');
 
 /* 
 |--------------------------------------------------------------------------

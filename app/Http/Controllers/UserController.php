@@ -21,20 +21,33 @@ class UserController extends Controller
     }
 
     public function registerForCourse(Request $request, Course $course)
-    {
-        if ($request->has('confirm')) 
-        {
-            $user = Auth::user();
+    {   
+        if (Auth::check()) {
+            if ($request->has('confirm')) 
+            {
+                $user = Auth::user();
+                if ($user->courses->contains($course->id)) {
+                    toastr()->warning('You already applied for this course.');
+                    return back();
+                }
 
-            $user->courses()->attach($course, [
-                'completed' => false,
-                'seen' => true,
-            ]);
-            return "Successfully registered for the course.";
+                $user->courses()->attach($course, [
+                    'completed' => false,
+                    'seen' => true,
+                ]);
+                toastr()->success('Successfully registered for the course.');
+                return redirect()->route('welcome');
+            }
+            else {
+                toastr()->error('Checkbox not checked. Please check the checkbox to register for the course.');
+                return back();
+            }
         }
-        else {
-            return "Checkbox not checked. Please check the checkbox to register for the course.";
+        else{
+            toastr()->warning('Please sign in or register before applying.');
+            return back();
         }
+       
     }
 
 }
