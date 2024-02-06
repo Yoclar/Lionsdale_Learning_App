@@ -34,7 +34,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 |-------------------------------------------------------------------------- 
 */
 Route::resource('/courses', CourseController::class);
-Route::get('/courses_test', [CourseController::class, 'showTestForm'])->name('courses.test');
+Route::get('/courses/takeTest/{course}', [CourseController::class, 'takeTest'])->name('courses.takeTest')->middleware('auth');
 
 
 /* 
@@ -58,3 +58,11 @@ Route::post('/register-for-course/{course}', [UserController::class, 'registerFo
 |-------------------------------------------------------------------------- 
 */
 Route::get('/apply/{courseId}', [App\Http\Controllers\ApplyController::class, 'showForm'])->name('apply.form');
+
+/* 
+|--------------------------------------------------------------------------
+| Quiz routes
+|-------------------------------------------------------------------------- 
+*/
+Route::post('/quiz/submit', [QuizController::class, 'submit'])->name('quiz.submit');
+    

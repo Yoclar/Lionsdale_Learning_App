@@ -35,8 +35,18 @@
             <a class="nav-link text-center sidebarLink" href="{{url('/')}}">Home</a>
             <a class="nav-link text-center sidebarLink" href="{{route('courses.create')}}">Create course</a>
             <a class="nav-link text-center sidebarLink" href="{{route('courses.index') }}">Courses</a>
-            @if(Auth::check() && Auth::user()->courses->isNotEmpty())<a class="nav-link text-center sidebarLink" href="{{route('courses.test')}}">Take the course test</a>
+            @if(Auth::check())
+            @php
+                $user = Auth::user();
+                $firstUncompletedCourse = $user->courses()->wherePivot('completed', false)->first();
+            @endphp
+
+            @if($firstUncompletedCourse)
+                <a class="nav-link text-center sidebarLink" href="{{ route('courses.takeTest', ['course' => $firstUncompletedCourse->id]) }}">
+                    Take the test for {{ $firstUncompletedCourse->name }}
+                </a>
             @endif
+        @endif
             
 
             <!-- Add login and logout buttons -->

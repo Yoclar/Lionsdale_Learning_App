@@ -36,10 +36,10 @@ class CourseController extends Controller
     }
 
     
-    public function showTestForm()
+    public function takeTest(Course $course)
     {
         
-        return view('courses.test');
+        return view('courses.test', compact('course'));
     }
     
     /**
