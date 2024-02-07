@@ -6,11 +6,12 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <form action="{{route('quiz.submit') }}" method="POST" class="mt-4">
+                    {{-- route('quiz.submit') }} --}}
+                    <form action="" method="POST" class="mt-4">
                         @csrf
-                        @foreach (Auth::user()->courses as $item)                      
-                        <h2 class="mb-4">{{$item->name}} Quiz Form</h2>
-                        @endforeach
+                        @if(Auth::user()->courses->isNotEmpty())
+                        <h2 class="mb-4">{{ Auth::user()->courses->first()->name }} Quiz Form</h2>
+                    @endif
 
                         <!-- Question 1 -->
                         <div class="form-group quizzBorder">

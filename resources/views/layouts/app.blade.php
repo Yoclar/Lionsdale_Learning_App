@@ -34,6 +34,7 @@
             <a href="#" class="closebtn" id="closeSidebarButton" onclick="closeSidebar()">&times;</a>
             <a class="nav-link text-center sidebarLink" href="{{url('/')}}">Home</a>
             <a class="nav-link text-center sidebarLink" href="{{route('courses.create')}}">Create course</a>
+            <a class="nav-link text-center sidebarLink" href="{{ route('courses.delete') }}">Delete Course</a>
             <a class="nav-link text-center sidebarLink" href="{{route('courses.index') }}">Courses</a>
             @if(Auth::check())
             @php

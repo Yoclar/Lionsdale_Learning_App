@@ -6,7 +6,7 @@ use Faker\Factory as Faker;
 use App\Models\Course;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
-
+use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     /**
@@ -30,6 +30,16 @@ class CourseController extends Controller
         
     }
 
+    
+
+    public function GoToDelete(Request $request)
+    {
+        $courseId = $request->course_id;
+        $selectedCourse = Course::find($courseId);
+        $courses = Course::all();
+        return view('courses.delete', ['selectedCourse' => $selectedCourse, 'courses' => $courses]);
+    }
+
     protected function generateFakePrice(): float
     {
         return fake()->randomFloat(2,100,200);
@@ -41,6 +51,8 @@ class CourseController extends Controller
         
         return view('courses.test', compact('course'));
     }
+
+  
     
     /**
      * Show the form for creating a new resource.
@@ -90,6 +102,8 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        $course->delete();
+        toastr()->success('The course has been deleted successfully!');
+        return redirect()->route('welcome');
     }
 }

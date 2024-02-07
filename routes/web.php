@@ -35,6 +35,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 */
 Route::resource('/courses', CourseController::class);
 Route::get('/courses/takeTest/{course}', [CourseController::class, 'takeTest'])->name('courses.takeTest')->middleware('auth');
+Route::get('/courses_delete', [CourseController::class, 'GoToDelete'])->name('courses.delete');
+
 
 
 /* 
@@ -64,5 +66,5 @@ Route::get('/apply/{courseId}', [App\Http\Controllers\ApplyController::class, 's
 | Quiz routes
 |-------------------------------------------------------------------------- 
 */
-Route::post('/quiz/submit', [App\Http\Controllers\QuizController::class, 'submit'])->name('quiz.submit');
+Route::post('/quiz/submit/{courseId}', [App\Http\Controllers\QuizController::class, 'submit'])->name('quiz.submit');
     

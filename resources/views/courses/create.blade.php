@@ -49,14 +49,15 @@
                         {{--<small class="text-muted">Error text</small>--}}
                         </div>
                     
-                            <div class="mb-3">
-                            <label for="" class="form-label">Level</label>
-                            <input type="text" name="level" id="level" class="form-control @if($errors->has('level')) is-invalid @endif" value="{{old('level')}}">
-                            @error('level')
-                                <small class="text-danger">*{{$message}}</small>
-                            @enderror
-                            {{--<small class="text-muted">Error text</small>--}}
-                            </div>
+                        <div class="mb-3">
+                            <label for="level" class="form-label">Level</label>
+                            <select name="level" id="level" class="form-control">
+                                <option value="" disabled selected>Level</option>
+                                  <option value="beginner">Beginner</option>
+                                  <option value="intermediate">Intermediate</option>
+                                  <option value="professonal">Professional</option>
+                            </select>
+                          </div>
                         
                             <div class="mb-3">
                               <label for="" class="form-label">Type</label>
